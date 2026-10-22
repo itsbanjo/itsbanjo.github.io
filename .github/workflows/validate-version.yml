@@ -23,3 +23,12 @@ jobs:
           python-version: '3.12'
       - name: Validate schema and live App Store version
         run: python3 tools/validate_version_json.py snotshot/version.json --live
+      - name: Check the public URL is served as JSON
+        run: |
+          url="https://itsbanjo.github.io/snotshot/version.json"
+          ct=$(curl -fsS -o /dev/null -w '%{content_type}' "$url")
+          echo "content-type: $ct"
+          case "$ct" in
+            application/json*) ;;
+            *) echo "unexpected content type: $ct"; exit 1;;
+          esac
