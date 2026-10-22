@@ -1,0 +1,10 @@
+{
+  "enabled": false,
+  "ios": {
+    "minBuild": 14,
+    "latestBuild": 14,
+    "minVersion": "1.4.0",
+    "latestVersion": "1.4.0",
+    "url": "https://apps.apple.com/app/id6818944453"
+  }
+}
